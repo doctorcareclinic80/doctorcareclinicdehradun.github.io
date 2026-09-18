@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Care Clinic | Dr. Preeti Rai (MBBS, MD) Dehradun</title>
+    <meta name="description" content="Doctor Care Clinic Dehradun. Consult Dr. Preeti Rai (MBBS, MD) for online video/phone consultation and comprehensive family care.">
+    
+    <!-- Modern Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #ccfbf1;
+            --accent: #2563eb;
+            --dark: #0f172a;
+            --slate: #475569;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --radius: 20px;
+            --shadow: 0 12px 35px -8px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #f8fafc;
+            color: var(--dark);
+            line-height: 1.55;
+            padding-bottom: 90px; /* Space for mobile sticky button bar */
+        }
+
+        /* Top Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .clinic-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        .clinic-brand i {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .quick-call {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.45rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 1.2rem 1rem;
+        }
+
+        /* Doctor Hero Profile Card */
+        .doctor-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+            padding: 2.2rem 1.4rem;
+            margin-bottom: 1.6rem;
+            position: relative;
+        }
+
+        .doctor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.2rem auto;
+        }
+
+        .doctor-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .verified-tick {
+            position: absolute;
+            bottom: 2px;
+            right: 6px;
+            background: #10b981;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            font-size: 0.75rem;
+        }
+
+        .status-chip {
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            padding: 0.25rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.7rem;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+        }
+
+        .doc-name {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.1rem;
+        }
+
+        .doc-deg {
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Timing Grid */
+        .timing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .timing-item h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--slate);
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .timing-item p {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .timing-item small {
+            font-size: 0.72rem;
+            color: #64748b;
+            display: block;
+        }
+
+        /* Section Headings */
+        .section-label {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 1.8rem 0 0.9rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .fee-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 1.2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .fee-card.highlight {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%);
+        }
+
+        .fee-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+        }
+
+        .fee-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .fee-amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .fee-info {
+            font-size: 0.72rem;
+            color: var(--slate);
+            margin-top: 0.3rem;
+        }
+
+        /* Services Grid */
+        .services-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .service-tile {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .service-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Testimonials Section */
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 0.75rem;
+        }
+
+        .review-text {
+            font-size: 0.84rem;
+            color: var(--slate);
+            line-height: 1.45;
+        }
+
+        /* Location Card */
+        .location-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 1.2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.6rem;
+        }
+
+        .loc-content {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .loc-icon {
+            width: 42px;
+            height: 42px;
+            background: #fee2e2;
+            color: #ef4444;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .loc-content h4 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 0.15rem;
+        }
+
+        .loc-content p {
+            font-size: 0.82rem;
+            color: var(--slate);
+        }
+
+        .maps-btn {
+            display: block;
+            text-align: center;
+            background: #f1f5f9;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.7rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: 0.2s ease;
+        }
+
+        .maps-btn:hover {
+            background: #e2e8f0;
+        }
+
+        /* Mobile Sticky Footer Action Bar */
+        .bottom-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            display: flex;
+            gap: 10px;
+            z-index: 999;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.85rem;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-call {
+            background: var(--dark);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--slate);
+            padding: 1.5rem 0 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="header">
+        <a href="#" class="clinic-brand">
+            <i class="fa-solid fa-hospital-user"></i>
+            <span>Doctor Care Clinic</span>
+        </a>
+        <a href="tel:7037402145" class="quick-call">
+            <i class="fa-solid fa-phone"></i> 7037402145
+        </a>
+    </header>
+
+    <main class="container">
+
+        <!-- Doctor Card -->
+        <section class="doctor-card">
+            <div class="avatar-wrap">
+                <img src="drpreeti.png" alt="Dr. Preeti Rai" class="doctor-photo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/387/387569.png'">
+                <div class="verified-tick"><i class="fa-solid fa-check"></i></div>
+            </div>
+
+            <div class="status-chip">
+                <div class="live-dot"></div> Available for Consultation
+            </div>
+
+            <h1 class="doc-name">Dr. Preeti Rai</h1>
+            <div class="doc-deg">MBBS, MD &bull; Consultant Physician</div>
+
+            <div class="timing-grid">
+                <div class="timing-item">
+                    <h5><i class="fa-regular fa-sun" style="color:#eab308;"></i> Morning</h5>
+                    <p>9:00 AM - 1:00 PM</p>
+                    <small>Mon to Sat</small>
+                </div>
+                <div class="timing-item">
+                    <h5><i class="fa-solid fa-moon" style="color:#6366f1;"></i> Evening</h5>
+                    <p>5:00 PM - 7:00 PM</p>
+                    <small>Sun: By Appt.</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Packages (Both ?500) -->
+        <div class="section-label">
+            <i class="fa-solid fa-tags"></i> Consultation Fees
+        </div>
+        <section class="pricing-box">
+            <div class="fee-card highlight">
+                <span class="fee-badge">Online Video</span>
+                <div class="fee-title"><i class="fa-solid fa-video" style="color:var(--primary);"></i> Video Call</div>
+                <div class="fee-amount">&#8377;500</div>
+                <div class="fee-info">Digital Prescription Included</div>
+            </div>
+
+            <div class="fee-card highlight">
+                <span class="fee-badge">Direct Voice</span>
+                <div class="fee-title"><i class="fa-solid fa-phone-volume" style="color:var(--primary);"></i> Phone Call</div>
+                <div class="fee-amount">&#8377;500</div>
+                <div class="fee-info">Reports & Health Assessment</div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <div class="section-label">
+            <i class="fa-solid fa-stethoscope"></i> Clinical Services
+        </div>
+        <section class="services-list">
+            <div class="service-tile">
+                <div class="service-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                <div class="service-name">Online Consultation</div>
+            </div>
+            <div class="service-tile">
+                <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div class="service-name">BP & Sugar Monitoring</div>
+            </div>
+            <div class="service-tile">
+                <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="service-name">General Health Check</div>
+            </div>
+            <div class="service-tile">
+                <div class="service-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <div class="service-name">Preventive Care</div>
+            </div>
+        </section>
+
+        <!-- Patient Testimonials -->
+        <div class="section-label">
+            <i class="fa-solid fa-star"></i> Patient Reviews
+        </div>
+        <section class="reviews-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Amit Chauhan</span>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Dr. Preeti Rai was very polite and explained my diagnosis very clearly. Online video consultation was quick and hassle-free."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Pooja Negi</span>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Best clinic in Indira Nagar Dehradun for routine checkup. Accurate medication and very reasonable consultation fees."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Rahul Rawat</span>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Booked an appointment through WhatsApp easily. Treatment for my father's diabetes is showing great results."</p>
+            </div>
+        </section>
+
+        <!-- Clinic Address -->
+        <div class="section-label">
+            <i class="fa-solid fa-location-dot"></i> Visit Clinic
+        </div>
+        <section class="location-card">
+            <div class="loc-content">
+                <div class="loc-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div>
+                    <h4>Doctor Care Clinic</h4>
+                    <p>Malik Chowk, Indira Nagar (Near Mama Momos), Dehradun, Uttarakhand</p>
+                </div>
+            </div>
+            <a href="https://maps.google.com/?q=Doctor+Care+Clinic+Indira+Nagar+Dehradun" target="_blank" class="maps-btn">
+                <i class="fa-solid fa-diamond-turn-right"></i> Open in Google Maps
+            </a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Doctor Care Clinic. All Rights Reserved.</p>
+            <p style="margin-top: 3px;">Dr. Preeti Rai (MBBS, MD) &bull; Dehradun</p>
+        </footer>
+
+    </main>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="bottom-action-bar">
+        <a href="https://wa.me/917037402145?text=Hello%20Dr.%20Preeti%20Rai,%20I%20want%20to%20book%20an%20appointment." class="action-btn btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="tel:7037402145" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i> Call Doctor
+        </a>
+    </div>
+
+</body>
+</html>
